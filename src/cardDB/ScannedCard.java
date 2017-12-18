@@ -9,5 +9,5 @@ public class ScannedCard{
 	public ScannedCard(String name, String editon, Condition condition, Language language, boolean foil)
 	{
 		this.name=name; this.edition=edition; this.condition=condition; this.language=language;this.foil=foil;
-	}
+	}	
 }

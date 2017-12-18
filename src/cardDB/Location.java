@@ -1,7 +1,13 @@
 package cardDB;
 
 public class Location {
-	private String name;
+	public Location(int position, Container container){
+		this.container=container;
+		this.position=position;
+		
+	}
+	
 	private int position;
-	private Container Container;
+	private Container container;
+	
 }

@@ -18,8 +18,11 @@ public class Article {
 		this.language=language;
 		this.condition=condition;
 		if(container.isFull())
-			throw new IllegalArgumentException("Container is fulll");
+			throw new IllegalArgumentException("Container is fulll"); //TODO: own exception Type
 
+		this.locations=new ArrayList<Location>();
+		this.locations.add(container.getNewLocation());
+	}
 		
-		}
+		
 }

@@ -31,6 +31,12 @@ public class Article {
 			return false;
 		
 	}
+	public void stack(ScannedCard card, Container container)
+	{
+		this.locations.add(container.getnewLocation());	
+		
+	}
+	
 	
 		
 		

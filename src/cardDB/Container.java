@@ -15,6 +15,7 @@ class Container {
 	}
 	public Location getNewLocation(void){
 		Location loc=new Location(locations.size(),this);
+		locations.add(loc);
 		return loc;
 	}
 

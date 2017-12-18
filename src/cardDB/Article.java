@@ -23,8 +23,8 @@ public class Article {
 		this.locations.add(container.getNewLocation());
 		
 	}
-	public boolean isStackable(Language language, Condition condition, int prodNr, boolean foil ){
-		if(this.language.equals(language)&&this.condition.equals(condition)&&this.prodNr==prodNr&&this.foil==foil)
+	public boolean isStackable(ScannedCard card ){
+		if(this.language.equals(card.language)&&this.condition.equals(card.condition)&&this.prodNr==card.prodNr&&this.foil==card.foil)
 		{
 			return true;
 		}

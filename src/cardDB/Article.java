@@ -12,7 +12,6 @@ public class Article {
 	private List<Location> locations;
 	private int Count;
 	public  Article(Location location, Language language,Condition condition, int artNr, int prodNr, Container container ){
-		this.name=name;
 		this.artNr=artNr;
 		this.prodNr=prodNr;
 		this.language=language;
@@ -22,7 +21,17 @@ public class Article {
 
 		this.locations=new ArrayList<Location>();
 		this.locations.add(container.getNewLocation());
+		
 	}
+	public boolean isStackable(Language language, Condition condition, int prodNr, boolean foil ){
+		if(this.language.equals(language)&&this.condition.equals(condition)&&this.prodNr==prodNr&&this.foil==foil)
+		{
+			return true;
+		}
+			return false;
+		
+	}
+	
 		
 		
 }

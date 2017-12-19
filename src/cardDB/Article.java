@@ -10,7 +10,7 @@ public class Article {
 	private  int prodNr;
 	private Language language;
 	private List<Location> locations;
-	private int Count;
+	private int count;
 	public  Article(ScannedCard card, Container container ){
 		this.prodNr=card.prodNr;
 		this.language=card.language;
@@ -34,6 +34,7 @@ public class Article {
 	public void stack(ScannedCard card, Container container)
 	{
 		this.locations.add(container.getnewLocation());	
+		count++;
 		
 	}
 	

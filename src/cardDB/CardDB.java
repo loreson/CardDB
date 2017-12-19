@@ -21,6 +21,15 @@ public void SellScannedCard(ScannedCard Card)
 	Article art=new Article(card,container);
 	
 }
+public void SoldArticle(Article sold, int count)
+{
+	for(int i=0; i<count; i++)
+	{
+		Article.printLocation();
+		Article.removeFirstLocal();
+	}
+	
+}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -13,10 +13,12 @@ public void SellScannedCard(ScannedCard Card)
 	{
 	 if (art.isStackable(card))
 	 {
-		 art.stack(card)
+		 art.stack(card,container)
 		 //TODO: addOnMkm
+		 return;
 	 }
 	}
+	Article art=new Article(card,container);
 	
 }
 

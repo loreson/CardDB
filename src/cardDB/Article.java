@@ -11,16 +11,16 @@ public class Article {
 	private Language language;
 	private List<Location> locations;
 	private int Count;
-	public  Article(Location location, Language language,Condition condition, int artNr, int prodNr, Container container ){
-		this.artNr=artNr;
-		this.prodNr=prodNr;
-		this.language=language;
-		this.condition=condition;
+	public  Article(ScannedCard card, Container container ){
+		this.prodNr=card.prodNr;
+		this.language=card.language;
+		this.condition=card.condition;
 		if(container.isFull())
 			throw new IllegalArgumentException("Container is fulll"); //TODO: own exception Type
 
 		this.locations=new ArrayList<Location>();
 		this.locations.add(container.getNewLocation());
+		artNr=mkm.CreateArticle(this);
 		
 	}
 	public boolean isStackable(ScannedCard card ){

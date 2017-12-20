@@ -2,7 +2,7 @@ package cardDB;
 
 import java.util.List;
 
-import javax.xml.stream.Location;
+
 
 class Container {
 	private List<Location> locations;
@@ -13,7 +13,7 @@ class Container {
 		else
 			return false;
 	}
-	public Location getNewLocation(void){
+	public Location getNewLocation(){
 		Location loc=new Location(locations.size(),this);
 		locations.add(loc);
 		return loc;

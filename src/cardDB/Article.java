@@ -1,5 +1,6 @@
 package cardDB;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Article {
@@ -12,19 +13,19 @@ public class Article {
 	private List<Location> locations;
 	private int count;
 	public  Article(ScannedCard card, Container container ){
-		this.prodNr=card.prodNr;
-		this.language=card.language;
-		this.condition=card.condition;
+		this.prodNr=card.prodNr();
+		this.language=card.language();
+		this.condition=card.condition();
 		if(container.isFull())
 			throw new IllegalArgumentException("Container is fulll"); //TODO: own exception Type
 
 		this.locations=new ArrayList<Location>();
 		this.locations.add(container.getNewLocation());
-		artNr=mkm.CreateArticle(this);
+	//TODO: Implement	artNr=mkm.CreateArticle(this);
 		
 	}
 	public boolean isStackable(ScannedCard card ){
-		if(this.language.equals(card.language)&&this.condition.equals(card.condition)&&this.prodNr==card.prodNr&&this.foil==card.foil)
+		if(this.language.equals(card.language())&&this.condition.equals(card.condition())&&this.prodNr==card.prodNr()&&this.foil==card.foil())
 		{
 			return true;
 		}
@@ -33,7 +34,7 @@ public class Article {
 	}
 	public void stack(ScannedCard card, Container container)
 	{
-		this.locations.add(container.getnewLocation());	
+		this.locations.add(container.getNewLocation());	
 		count++;
 		
 	}

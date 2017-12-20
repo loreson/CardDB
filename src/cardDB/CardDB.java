@@ -6,14 +6,15 @@ public class CardDB {
 	
 private  List<Article> articleList;
 private List<Container> containerList;
-public void SellScannedCard(ScannedCard Card)
+public void SellScannedCard(ScannedCard card)
 {
 	int ProdNr=17;//TODO:get from mkm;
+	Container container = null;
 	for(Article art: articleList)
 	{
 	 if (art.isStackable(card))
 	 {
-		 art.stack(card,container)
+		 art.stack(card,container);
 		 //TODO: addOnMkm
 		 return;
 	 }

@@ -38,6 +38,11 @@ public class Article {
 		count++;
 		
 	}
+	public void removeFirstLocal() {
+		count--;
+		locations.remove(0);
+		
+	}
 	
 	
 		

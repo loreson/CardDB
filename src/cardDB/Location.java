@@ -9,5 +9,7 @@ public class Location {
 	
 	private int position;
 	private Container container;
-	
+	public String toString() {
+		return this.container.name()+" pos: "+Integer.toString(position);
+	} 
 }

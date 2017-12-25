@@ -43,6 +43,9 @@ public class Article {
 		locations.remove(0);
 		
 	}
+	public void printFirstLocation() {
+		System.out.println(locations.get(0).toString());		
+	}
 	
 	
 		

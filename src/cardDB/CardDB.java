@@ -26,8 +26,8 @@ public void SoldArticle(Article sold, int count)
 {
 	for(int i=0; i<count; i++)
 	{
-		Article.printLocation();
-		Article.removeFirstLocal();
+		sold.printFirstLocation();
+		sold.removeFirstLocal();
 	}
 	
 }

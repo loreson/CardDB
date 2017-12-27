@@ -1,9 +1,14 @@
 package cardDB;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Article {
+public class Article implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 17L;
 	private String name;
 	private boolean foil;
 	private Condition condition;

@@ -1,10 +1,15 @@
 package cardDB;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 
-class Container {
+class Container implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 17L;
 	private List<Location> locations;
 	private int capacity;
 	private String name;

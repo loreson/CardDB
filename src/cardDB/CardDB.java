@@ -1,9 +1,27 @@
 package cardDB;
 
+import java.io.File;
 import java.util.List;
 
 public class CardDB {
+private String DBpath;
+private CardDB(String DBPath)
+{
+	this.DBpath=DBPath;
+	if(hasState()){
+		
+	}
 	
+}
+	
+private boolean hasState() {
+	if(new File(DBpath).isFile())
+	{
+		return true;
+	}
+	return false;
+}
+
 private  List<Article> articleList;
 private List<Container> containerList;
 public void SellScannedCard(ScannedCard card)
@@ -34,8 +52,10 @@ public void SoldArticle(Article sold, int count)
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+	 CardDB cardDB=new CardDB(args[1]);
 		
 	}
+	
 
 
 }

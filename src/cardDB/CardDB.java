@@ -1,21 +1,50 @@
 package cardDB;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardDB {
-private String DBpath;
-private CardDB(String DBPath)
+private String DBPath;
+private CardDB(String DBPath) throws ClassNotFoundException, IOException
 {
-	this.DBpath=DBPath;
+	this.DBPath=DBPath;
 	if(hasState()){
+		 deSerializeState();
 		
+	}
+	else
+	{
+		newState();
 	}
 	
 }
 	
+private void newState() {
+	articleList=new ArrayList<Article>();
+	containerList=new ArrayList<Container>();
+	
+}
+
+@SuppressWarnings("unchecked")
+private void deSerializeState() throws ClassNotFoundException, IOException {
+	FileInputStream fileIn = new FileInputStream(DBPath);
+	ObjectInputStream in = null;
+
+    in = new ObjectInputStream(fileIn);
+	
+    articleList=(List<Article>) in.readObject();
+    containerList=(List<Container>) in.readObject();
+    in.close();
+    fileIn.close();
+}
+
 private boolean hasState() {
-	if(new File(DBpath).isFile())
+	if(new File(DBPath).isFile())
 	{
 		return true;
 	}

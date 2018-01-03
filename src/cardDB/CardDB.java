@@ -79,7 +79,7 @@ public void SoldArticle(Article sold, int count)
 	
 }
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO Auto-generated method stub
 	 CardDB cardDB=new CardDB(args[1]);
 		

@@ -1,28 +1,45 @@
 package cardDB;
 
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardDB {
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
+
+
+public class CardDB extends JFrame {
 private String DBPath;
-private CardDB(String DBPath) throws ClassNotFoundException, IOException
+private CardDB(String DBPath)
 {
 	this.DBPath=DBPath;
 	if(hasState()){
-		 deSerializeState();
+		 try {
+			deSerializeState();
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	else
 	{
 		newState();
 	}
+
+    initUI();
 	
 }
+
+
 	
 private void newState() {
 	articleList=new ArrayList<Article>();
@@ -50,6 +67,36 @@ private boolean hasState() {
 	}
 	return false;
 }
+private void initUI() {
+    
+    setTitle("CardDB v3");
+    setSize(300, 200);
+    setLocationRelativeTo(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    JButton scannerButton = new JButton("Scan new Cards");
+    scannerButton.addActionListener((ActionEvent event) -> {
+        //TODO: implement
+    });
+    createLayout(scannerButton);
+}
+
+private void createLayout(JComponent... arg) {
+
+    java.awt.Container pane = getContentPane();
+    GroupLayout gl = new GroupLayout(pane);
+    pane.setLayout(gl);
+
+    gl.setAutoCreateContainerGaps(true);
+
+    gl.setHorizontalGroup(gl.createSequentialGroup()
+            .addComponent(arg[0])
+    );
+
+    gl.setVerticalGroup(gl.createSequentialGroup()
+            .addComponent(arg[0])
+    );
+}
+
 
 private  List<Article> articleList;
 private List<Container> containerList;
@@ -81,7 +128,12 @@ public void SoldArticle(Article sold, int count)
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO Auto-generated method stub
-	 CardDB cardDB=new CardDB(args[1]);
+		EventQueue.invokeLater(() -> {
+			 CardDB cardDB=new CardDB(args[0]);
+		   cardDB.setVisible(true);
+		});
+	
+
 		
 	}
 	

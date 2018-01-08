@@ -17,15 +17,14 @@ public class Article implements Serializable {
 	private Language language;
 	private List<Location> locations;
 	private int count;
-	public  Article(ScannedCard card, Container container ){
+	public  Article(ScannedCard card){
 		this.prodNr=card.prodNr();
 		this.language=card.language();
 		this.condition=card.condition();
-		if(container.isFull())
-			throw new IllegalArgumentException("Container is fulll"); //TODO: own exception Type
+		
 
 		this.locations=new ArrayList<Location>();
-		this.locations.add(container.getNewLocation());
+		this.locations.add(card.location());
 	//TODO: Implement	artNr=mkm.CreateArticle(this);
 		
 	}

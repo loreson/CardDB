@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 import java.util.EventListener;
 
 import javax.swing.GroupLayout;
@@ -27,29 +28,43 @@ private void initUI() {
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    nameField=new JTextField("Container Name",25);
 	    nameField.addActionListener(this);
-	    capacityField =  null;// TODO: implement;
-	    createLayout(nameField);
+	    NumberFormat amountFormat = NumberFormat.getNumberInstance();
+	    capacityField =  new JFormattedTextField(amountFormat);
+	    capacityField.addActionListener(this);
+	    createLayout(nameField,capacityField);
 	    
 	}
 
-	private void createLayout(JComponent... arg) {
+	private void createLayout(JComponent... args) {
 
 	  JPanel panel=new JPanel();
 	   GridLayout gl = new GridLayout();
 	    panel.setLayout(gl);
-	    panel.add(arg[0]);
+	    for( JComponent arg: args ){
+	    panel.add(arg);
+	    }
 	    java.awt.Container pane = getContentPane();
 	    pane.add(panel,BorderLayout.NORTH);
-
+	    
 	 
 	}
 
 	JTextField nameField;
 	JFormattedTextField capacityField;
+	private String containerName;
+	private int  containerCapacity;
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(e.toString());
-		// TODO Auto-generated method stub
+		if(e.getSource()==nameField)
+		{
+			containerName=e.getActionCommand();
+			System.out.println(containerName);
+		}
+		if(e.getSource()==capacityField)
+		{
+			containerCapacity=Integer.parseInt(e.getActionCommand());
+			System.out.println(containerCapacity);
+		}
 		
 	}
 }

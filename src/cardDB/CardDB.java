@@ -108,12 +108,12 @@ public void SellScannedCard(ScannedCard card)
 	{
 	 if (art.isStackable(card))
 	 {
-		 art.stack(card,container);
+		 art.stack(card);
 		 //TODO: addOnMkm
 		 return;
 	 }
 	}
-	Article art=new Article(card,container);
+	Article art=new Article(card);
 	
 }
 public void SoldArticle(Article sold, int count)

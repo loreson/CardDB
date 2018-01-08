@@ -37,9 +37,9 @@ public class Article implements Serializable {
 			return false;
 		
 	}
-	public void stack(ScannedCard card, Container container)
+	public void stack(ScannedCard card)
 	{
-		this.locations.add(container.getNewLocation());	
+		this.locations.add(card.location());	
 		count++;
 		
 	}

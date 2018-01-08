@@ -14,11 +14,11 @@ public class CardScanner extends JFrame {
 	    setSize(300, 200);
 	    setLocationRelativeTo(null);
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
-	    JButton scannerButton = new JButton("Create Container");
-	    scannerButton.addActionListener((ActionEvent event) -> {
+	    JButton ContainerCreationButton = new JButton("Create Container");
+	    ContainerCreationButton.addActionListener((ActionEvent event) -> {
 	        //TODO: implement
 	    });
-	    createLayout(scannerButton);
+	    createLayout(ContainerCreationButton);
 	}
 
 	private void createLayout(JComponent... arg) {

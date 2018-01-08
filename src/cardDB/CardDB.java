@@ -75,7 +75,11 @@ private void initUI() {
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     JButton scannerButton = new JButton("Scan new Cards");
     scannerButton.addActionListener((ActionEvent event) -> {
-        //TODO: implement
+    	EventQueue.invokeLater(() -> {
+			CardScanner cardScanner=new CardScanner(this);
+		   cardScanner.setVisible(true);
+		});
+	
     });
     createLayout(scannerButton);
 }

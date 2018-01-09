@@ -16,7 +16,7 @@ public class CardScanner extends JFrame {
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    JButton ContainerCreationButton = new JButton("Create Container");
 	    ContainerCreationButton.addActionListener((ActionEvent event) -> {
-	    	ContainerCreator containerCreator= new ContainerCreator();
+	    	ContainerCreator containerCreator= new ContainerCreator(cardDB);
 	    	containerCreator.setVisible(true);
 	    });
 	    createLayout(ContainerCreationButton);

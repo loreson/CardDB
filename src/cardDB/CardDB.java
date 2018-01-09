@@ -140,6 +140,13 @@ public void SoldArticle(Article sold, int count)
 
 		
 	}
+
+
+
+	public void addContainer(String containerName, int containerCapacity) {
+		Container container=new Container(containerName, containerCapacity);
+		containerList.add(container);
+	}
 	
 
 

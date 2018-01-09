@@ -16,8 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ContainerCreator extends JFrame implements ActionListener {
-	public ContainerCreator()
+	private CardDB cardDB;
+	public ContainerCreator(CardDB cardDB)
 	{
+		this.cardDB=cardDB;
 		initUI();
 	}
 private void initUI() {
@@ -31,10 +33,19 @@ private void initUI() {
 	    NumberFormat amountFormat = NumberFormat.getNumberInstance();
 	    capacityField =  new JFormattedTextField(amountFormat);
 	    capacityField.addActionListener(this);
-	    createLayout(nameField,capacityField);
+	    JButton ContainerCreateButton = new JButton("Create");
+	    ContainerCreateButton.addActionListener((ActionEvent event) -> {
+	    	createContainer();
+	    });
+	    
+	    createLayout(nameField,capacityField,ContainerCreateButton);
 	    
 	}
 
+	private void createContainer() {
+		cardDB.addContainer(containerName,containerCapacity);
+	
+}
 	private void createLayout(JComponent... args) {
 
 	  JPanel panel=new JPanel();

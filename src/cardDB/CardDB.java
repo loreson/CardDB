@@ -147,6 +147,24 @@ public void SoldArticle(Article sold, int count)
 		Container container=new Container(containerName, containerCapacity);
 		containerList.add(container);
 	}
+
+
+
+	public String[] containerStrings() {
+		List<String> containerStringsList=new ArrayList<String>();
+		for(Container container: containerList)
+		{
+			containerStringsList.add(container.toString());
+		}
+		String[] containerStringsArray =new String[containerStringsList.size()] ;
+		for(int i=0; i<containerStringsList.size();i++)
+		{
+			containerStringsArray[i]=containerStringsList.get(i);
+		}
+		
+		
+		return containerStringsArray;
+	}
 	
 
 

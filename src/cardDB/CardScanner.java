@@ -1,11 +1,16 @@
 package cardDB;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
 
 public class CardScanner extends JFrame {
 	private void initUI() {
@@ -19,24 +24,24 @@ public class CardScanner extends JFrame {
 	    	ContainerCreator containerCreator= new ContainerCreator(cardDB);
 	    	containerCreator.setVisible(true);
 	    });
-	    createLayout(ContainerCreationButton);
+	    String[] containerStrings=cardDB.containerStrings();
+	    JList<String> containerList=new JList<String>(containerStrings);
+	    createLayout(ContainerCreationButton, containerList);
 	}
 
-	private void createLayout(JComponent... arg) {
+	private void createLayout(JComponent... args) {
 
 	    java.awt.Container pane = getContentPane();
-	    GroupLayout gl = new GroupLayout(pane);
-	    pane.setLayout(gl);
+	    JPanel panel = new JPanel();
+	    GridLayout gl = new GridLayout(0,2);
+	    panel.setLayout(gl);
+	    for(JComponent arg:args)
+	    {
+	    	panel.add(arg);
+	    }
+	    pane.add(panel,BorderLayout.NORTH);
+	    
 
-	    gl.setAutoCreateContainerGaps(true);
-
-	    gl.setHorizontalGroup(gl.createSequentialGroup()
-	            .addComponent(arg[0])
-	    );
-
-	    gl.setVerticalGroup(gl.createSequentialGroup()
-	            .addComponent(arg[0])
-	    );
 	}
 
 	

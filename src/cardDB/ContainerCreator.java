@@ -5,9 +5,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
-import java.util.EventListener;
-
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
@@ -16,6 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ContainerCreator extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 17L;
 	private CardDB cardDB;
 	public ContainerCreator(CardDB cardDB)
 	{
@@ -49,7 +50,7 @@ private void initUI() {
 	private void createLayout(JComponent... args) {
 
 	  JPanel panel=new JPanel();
-	   GridLayout gl = new GridLayout();
+	   GridLayout gl = new GridLayout(0,2);
 	    panel.setLayout(gl);
 	    for( JComponent arg: args ){
 	    panel.add(arg);
